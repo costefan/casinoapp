@@ -1,14 +1,13 @@
 
 <div class="container">
   <div class="center hero-unit">
-    <h1>Welcome to the Sample App</h1>
+    <h1>Welcome to the Casino App</h1>
 
     <h2>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
+      This is the home page for the casino application.
     </h2>
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user,url: create_url) do |f| %>
+        <%= render 'shared/error_messages' %>
         <%= f.label :name %>
         <%= f.text_field :name %>
 
@@ -17,6 +16,12 @@
 
         <%= f.submit "Create",class: "" %>
     <% end %>
-    <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+    <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary btoggle"%>
+    <div class="tables-toggle" style="display: none">
+      <% @poker_tables.each do |t| %>
+            <%= t.name %>
+            <%= t.start_date %>
+      <% end %>
+    </div>
   </div>
 </div>

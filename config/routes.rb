@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home_page#home'
 
   match '/help', to: 'home_page#help', via: 'get'
-
+  match '/create', to: 'home_page#create_user',via: 'post'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
