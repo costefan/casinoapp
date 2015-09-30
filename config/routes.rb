@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   match '/help', to: 'home_page#help', via: 'get'
 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

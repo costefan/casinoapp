@@ -8,7 +8,15 @@
       <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
       sample application.
     </h2>
+    <%= form_for(@user) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
+        <%= f.submit "Create",class: "" %>
+    <% end %>
     <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
   </div>
 </div>
