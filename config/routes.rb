@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   match '/help', to: 'home_page#help', via: 'get'
   match '/create', to: 'home_page#create_user',via: 'post'
 
+  match '/createtable',to: 'home_page#create_table',via: 'post'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

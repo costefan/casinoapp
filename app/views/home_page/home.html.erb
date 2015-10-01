@@ -5,23 +5,27 @@
 
     <h2>
       This is the home page for the casino application.
+      <%= link_to "Let`s create tables!",help_path,class:"btn btn-large btn-primary" %>
     </h2>
+
     <%= form_for(@user,url: create_url) do |f| %>
         <%= render 'shared/error_messages' %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+        <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          <%= f.submit "Create",class: "btn btn-large btn-success " %> <br />
+        </div>
+        <%= link_to "Select the tables", '#', class: "btn btn-info btn-large btoggle "%>
+        <div class="tables-toggle" style="display: none">
+            <% @poker_tables.each do |x| %>
 
-        <%= f.label :email %>
-        <%= f.text_field :email %>
+                <%= check_box_tag('user[poker_table_ids][]',x.id )%><!-- # @user.poker_tables.include?(x) -->
+                <%= label_tag('user[poker_table_ids][]',x.name)%>
+                <br />
 
-        <%= f.submit "Create",class: "" %>
+            <% end %>
+        </div>
+
     <% end %>
-    <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary btoggle"%>
-    <div class="tables-toggle" style="display: none">
-      <% @poker_tables.each do |t| %>
-            <%= t.name %>
-            <%= t.start_date %>
-      <% end %>
-    </div>
   </div>
 </div>

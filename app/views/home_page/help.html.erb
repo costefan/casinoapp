@@ -1,2 +1,24 @@
-<h1>HomePage#help</h1>
-<p>Find me in app/views/home_page/help.html.erb</p>
+<div class="container">
+    <h1>#help</h1>
+  <%= form_for(@poker_table,url: createtable_path) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :start_date %>
+      <%= f.text_field :start_date,id: "table_date" %>
+      <%= f.submit "Create",class:"btn btn-large" %>
+  <% end %>
+      <script type="text/javascript">
+          $(function() {
+              $("#table_date").daterangepicker({
+                          singleDatePicker: true,
+                          showDropdowns: true,
+                          timePicker: true,
+                          timePickerIncrement: 30,
+                          locale: {
+                              format: 'YYYY-MM-DD'
+                            }
+                      });
+          });
+      </script>
+
+</div>
